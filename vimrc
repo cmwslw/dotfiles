@@ -9,6 +9,9 @@ set t_Co=256
 syntax on
 colorscheme desert
 set hlsearch
+set incsearch
+set ignorecase
+set smartcase
 set cursorline
 set autoindent
 set smartindent
@@ -20,6 +23,16 @@ set et
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
+
+filetype on
+filetype plugin on
+filetype indent on
+
+autocmd FileType javascript setlocal sw=2 sts=2 ts=2 noet
+
+" Highlight whitespace
+set list!
+set listchars=tab:>-
 
 vnoremap > >gv
 vnoremap < <gv
@@ -41,3 +54,24 @@ autocmd FileType tex set nolist
 autocmd FileType tex set linebreak
 
 let g:tex_conceal = ""
+
+" Trailing whitespace indicator
+if !exists('g:extra_whitespace_ignored_filetypes')
+    let g:extra_whitespace_ignored_filetypes = []
+endif
+
+function! ShouldMatchWhitespace()
+    for ft in g:extra_whitespace_ignored_filetypes
+        if ft ==# &filetype | return 0 | endif
+    endfor
+    return 1
+endfunction
+
+" Highlight EOL whitespace, http://vim.wikia.com/wiki/Highlight_unwanted_spaces
+highlight ExtraWhitespace ctermbg=darkred guibg=#382424
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+autocmd BufWinEnter * if ShouldMatchWhitespace() | match ExtraWhitespace /\s\+$/ | endif
+
+" The above flashes annoyingly while typing, be calmer in insert mode
+autocmd InsertLeave * if ShouldMatchWhitespace() | match ExtraWhitespace /\s\+$/ | endif
+autocmd InsertEnter * if ShouldMatchWhitespace() | match ExtraWhitespace /\s\+\%#\@<!$/ | endif
