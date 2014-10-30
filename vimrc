@@ -34,7 +34,7 @@ set undofile
 set backspace=indent,eol,start
 
 " LaTeX automation:
-map = :w<CR>:silent !pdflatex -shell-escape %<CR>:!open %<.pdf<CR>:!osascript -e 'tell application "iTerm"' -e 'activate' -e 'end tell'<CR> :<CR>
+autocmd FileType tex map = :w<CR>:silent !pdflatex -shell-escape %<CR>:!open %<.pdf<CR>:!osascript -e 'tell application "iTerm"' -e 'activate' -e 'end tell'<CR> :<CR>
 autocmd FileType tex setlocal sw=2 sts=2 et
 autocmd FileType tex set wrap
 autocmd FileType tex set nolist
