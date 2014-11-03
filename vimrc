@@ -28,7 +28,8 @@ filetype on
 filetype plugin on
 filetype indent on
 
-autocmd FileType javascript setlocal sw=2 sts=2 ts=2 noet
+au! BufRead,BufNewFile *.json set filetype=json
+autocmd FileType json setlocal sw=2 sts=2 ts=2 noet
 
 " Highlight whitespace
 set list!
