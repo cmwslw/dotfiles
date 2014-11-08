@@ -9,6 +9,8 @@ set t_Co=256
 syntax on
 colorscheme desert
 set hlsearch
+" Set orange highlight for hlsearch terms
+hi Search ctermbg=3
 set incsearch
 set ignorecase
 set smartcase
