@@ -9,8 +9,6 @@ set t_Co=256
 syntax on
 colorscheme desert
 set hlsearch
-" Set orange highlight for hlsearch terms
-hi Search ctermbg=3
 set incsearch
 set ignorecase
 set smartcase
@@ -25,6 +23,14 @@ set et
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
+
+" Color scheme tweaks
+" Set orange highlight for hlsearch terms
+hi Search ctermbg=3
+hi DiffAdd ctermfg=233
+hi DiffChange ctermfg=233
+hi DiffDelete ctermfg=233
+hi DiffText ctermfg=233
 
 filetype on
 filetype plugin on
