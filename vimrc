@@ -28,6 +28,7 @@ filetype on
 filetype plugin on
 filetype indent on
 
+" Special indentation for JSON
 au! BufRead,BufNewFile *.json set filetype=json
 autocmd FileType json setlocal sw=2 sts=2 ts=2 noet
 
@@ -35,6 +36,7 @@ autocmd FileType json setlocal sw=2 sts=2 ts=2 noet
 set list!
 set listchars=tab:>-
 
+" Keep lines selected after shifting them
 vnoremap > >gv
 vnoremap < <gv
 noremap  <buffer> <silent> k gk
@@ -43,6 +45,9 @@ noremap  <buffer> <silent> j gj
 " Persistent undo
 set undodir=~/.vimundo
 set undofile
+
+" Store swap files outside of project directories
+set directory=~/.vimswap
 
 " or else my backspace does not work:
 set backspace=indent,eol,start
