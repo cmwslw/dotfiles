@@ -57,6 +57,9 @@ if version >= 703
     set undofile
 endif
 
+" Create .swp files somewhere else
+set directory=~/.vimswp
+
 " or else my backspace does not work:
 set backspace=indent,eol,start
 
