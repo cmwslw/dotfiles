@@ -1,9 +1,31 @@
 set nocompatible
 
+" ------------
+" START VUNDLE
+" ------------
+
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'kien/ctrlp.vim'
+call vundle#end()
+
+filetype plugin indent on
+
+" ----------
+" END VUNDLE
+" ----------
+
 "set nofoldenable  " disable folding
 "set foldlevelstart=99
 
-set colorcolumn=80
+" Enable colorcolumn, but only vim 7.3 seems to have it
+if version >= 703
+    set colorcolumn=80
+endif
 
 set t_Co=256
 syntax on
@@ -36,6 +58,7 @@ filetype on
 filetype plugin on
 filetype indent on
 
+" Special indentation for JSON
 au! BufRead,BufNewFile *.json set filetype=json
 autocmd FileType json setlocal sw=2 sts=2 ts=2 noet
 
@@ -43,14 +66,23 @@ autocmd FileType json setlocal sw=2 sts=2 ts=2 noet
 set list!
 set listchars=tab:>-
 
+" Keep lines selected after shifting them
 vnoremap > >gv
 vnoremap < <gv
 noremap  <buffer> <silent> k gk
 noremap  <buffer> <silent> j gj
 
 " Persistent undo
-set undodir=~/.vimundo
-set undofile
+if version >= 703
+    set undodir=~/.vimundo
+    set undofile
+endif
+
+" Create .swp files somewhere else
+set directory=~/.vimswp
+
+" Store swap files outside of project directories
+set directory=~/.vimswap
 
 " or else my backspace does not work:
 set backspace=indent,eol,start
