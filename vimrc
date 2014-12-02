@@ -22,7 +22,10 @@ filetype plugin indent on
 "set nofoldenable  " disable folding
 "set foldlevelstart=99
 
-set colorcolumn=80
+" Enable colorcolumn, but only vim 7.3 seems to have it
+if version >= 703
+    set colorcolumn=80
+endif
 
 set t_Co=256
 syntax on
@@ -70,8 +73,13 @@ noremap  <buffer> <silent> k gk
 noremap  <buffer> <silent> j gj
 
 " Persistent undo
-set undodir=~/.vimundo
-set undofile
+if version >= 703
+    set undodir=~/.vimundo
+    set undofile
+endif
+
+" Create .swp files somewhere else
+set directory=~/.vimswp
 
 " Store swap files outside of project directories
 set directory=~/.vimswap
