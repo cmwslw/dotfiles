@@ -1,5 +1,24 @@
 set nocompatible
 
+" ------------
+" START VUNDLE
+" ------------
+
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'kien/ctrlp.vim'
+call vundle#end()
+
+filetype plugin indent on
+
+" ----------
+" END VUNDLE
+" ----------
+
 "set nofoldenable  " disable folding
 "set foldlevelstart=99
 
