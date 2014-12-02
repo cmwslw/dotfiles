@@ -11,6 +11,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'kien/ctrlp.vim'
+Plugin 'airblade/vim-gitgutter'
 call vundle#end()
 
 filetype plugin indent on
@@ -53,6 +54,8 @@ hi DiffAdd ctermfg=233
 hi DiffChange ctermfg=233 ctermbg=3
 hi DiffDelete ctermfg=233
 hi DiffText ctermfg=233
+" Change the ugly gray gutter to a darker color
+hi SignColumn ctermbg=black
 
 filetype on
 filetype plugin on
