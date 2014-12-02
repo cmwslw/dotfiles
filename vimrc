@@ -28,7 +28,7 @@ endif
 " Set orange highlight for hlsearch terms
 hi Search ctermbg=3
 hi DiffAdd ctermfg=233
-hi DiffChange ctermfg=233
+hi DiffChange ctermfg=233 ctermbg=3
 hi DiffDelete ctermfg=233
 hi DiffText ctermfg=233
 
