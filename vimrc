@@ -123,3 +123,8 @@ autocmd InsertEnter * if ShouldMatchWhitespace() | match ExtraWhitespace /\s\+\%
 " CtrlP options
 let g:ctrlp_working_path_mode = 'ra'
 nnoremap <silent> <D-t> :CtrlP<CR>
+
+" Open new split panes to right and bottom, which feels more natural than
+" Vim’s default:
+set splitbelow
+set splitright
