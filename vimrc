@@ -119,3 +119,7 @@ autocmd BufWinEnter * if ShouldMatchWhitespace() | match ExtraWhitespace /\s\+$/
 " The above flashes annoyingly while typing, be calmer in insert mode
 autocmd InsertLeave * if ShouldMatchWhitespace() | match ExtraWhitespace /\s\+$/ | endif
 autocmd InsertEnter * if ShouldMatchWhitespace() | match ExtraWhitespace /\s\+\%#\@<!$/ | endif
+
+" CtrlP options
+let g:ctrlp_working_path_mode = 'ra'
+nnoremap <silent> <D-t> :CtrlP<CR>
