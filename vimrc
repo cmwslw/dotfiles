@@ -12,6 +12,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'kien/ctrlp.vim'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'scrooloose/nerdcommenter'
 call vundle#end()
 
 filetype plugin indent on
@@ -46,6 +47,7 @@ set et
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
+let mapleader=","
 
 " Color scheme tweaks
 " Set orange highlight for hlsearch terms
