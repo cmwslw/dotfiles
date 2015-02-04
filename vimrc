@@ -66,6 +66,7 @@ filetype indent on
 " Special indentation for JSON
 au! BufRead,BufNewFile *.json set filetype=json
 autocmd FileType json setlocal sw=2 sts=2 ts=2 noet
+autocmd FileType ocaml setlocal sw=2 sts=2 ts=2 
 
 " Highlight whitespace
 set list!
