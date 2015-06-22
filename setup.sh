@@ -5,4 +5,7 @@ ln -s ~/dotfiles/vimrc ~/.vimrc
 mv ~/.tmux.conf ~/.tmux.conf.bak
 ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
 
+mkdir ~/.vimswap
+mkdir ~/.vimundo
+
 vim +PluginInstall +qall
