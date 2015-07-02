@@ -71,6 +71,9 @@ au! BufRead,BufNewFile *.json set filetype=json
 autocmd FileType json setlocal sw=2 sts=2 ts=2 noet
 autocmd FileType ocaml setlocal sw=2 sts=2 ts=2 
 
+" Treat INO files as C files
+au! BufRead,BufNewFile *.ino set filetype=c
+
 " Highlight whitespace
 set list!
 set listchars=tab:>-
