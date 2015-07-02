@@ -13,6 +13,9 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'kien/ctrlp.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/nerdcommenter'
+"Plugin 'camelcasemotion'
+Plugin 'elzr/vim-json'
+Plugin 'junegunn/vim-easy-align'
 call vundle#end()
 
 filetype plugin indent on
@@ -63,7 +66,7 @@ filetype on
 filetype plugin on
 filetype indent on
 
-" Special indentation for JSON
+" Special indentation for JSON and OCaml
 au! BufRead,BufNewFile *.json set filetype=json
 autocmd FileType json setlocal sw=2 sts=2 ts=2 noet
 autocmd FileType ocaml setlocal sw=2 sts=2 ts=2 
@@ -132,3 +135,15 @@ nnoremap <silent> <D-t> :CtrlP<CR>
 " Vim’s default:
 set splitbelow
 set splitright
+
+" vim-json tweaks
+let g:vim_json_syntax_conceal = 0
+autocmd FileType json setlocal foldmethod=syntax
+autocmd FileType json setlocal foldlevel=99
+
+" easy align
+" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+vmap <Enter> <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
