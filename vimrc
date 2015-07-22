@@ -127,7 +127,7 @@ autocmd InsertLeave * if ShouldMatchWhitespace() | match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * if ShouldMatchWhitespace() | match ExtraWhitespace /\s\+\%#\@<!$/ | endif
 
 " CtrlP options
-set wildignore+=*/env/*,*/sentry_env/*,*.pyc,*.o
+set wildignore+=*/env/*,*/sentry_env/*,*.pyc,*.o,*.xlsx,*.pdf,*/ipython/inline/data/*,*/.ipynb_checkpoints/*
 let g:ctrlp_working_path_mode = 'ra'
 nnoremap <silent> <D-t> :CtrlP<CR>
 
