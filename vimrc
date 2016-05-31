@@ -70,6 +70,9 @@ filetype indent on
 au! BufRead,BufNewFile *.json set filetype=json
 autocmd FileType json setlocal sw=2 sts=2 ts=2 noet
 autocmd FileType ocaml setlocal sw=2 sts=2 ts=2 
+autocmd FileType go setlocal sw=4 sts=4 ts=4 noet nolist
+highlight BeginningWhitespace ctermbg=darkred guibg=#382424
+autocmd! BufEnter *.go :match BeginningWhitespace /^ \+/
 
 " Treat INO files as C files
 au! BufRead,BufNewFile *.ino set filetype=c
@@ -126,8 +129,8 @@ autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd BufWinEnter * if ShouldMatchWhitespace() | match ExtraWhitespace /\s\+$/ | endif
 
 " The above flashes annoyingly while typing, be calmer in insert mode
-autocmd InsertLeave * if ShouldMatchWhitespace() | match ExtraWhitespace /\s\+$/ | endif
-autocmd InsertEnter * if ShouldMatchWhitespace() | match ExtraWhitespace /\s\+\%#\@<!$/ | endif
+"autocmd InsertLeave * if ShouldMatchWhitespace() | match ExtraWhitespace /\s\+$/ | endif
+"autocmd InsertEnter * if ShouldMatchWhitespace() | match ExtraWhitespace /\s\+\%#\@<!$/ | endif
 
 " CtrlP options
 set wildignore+=*/env/*,*/sentry_env/*,*.pyc,*.o,*.xlsx,*.pdf,*/ipython/inline/data/*,*/.ipynb_checkpoints/*
