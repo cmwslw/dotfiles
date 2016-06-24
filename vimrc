@@ -16,6 +16,7 @@ Plugin 'cmwslw/nerdcommenter'
 "Plugin 'camelcasemotion'
 Plugin 'elzr/vim-json'
 Plugin 'junegunn/vim-easy-align'
+Plugin 'AndrewRadev/sideways.vim'
 call vundle#end()
 
 filetype plugin indent on
