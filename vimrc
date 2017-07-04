@@ -17,6 +17,7 @@ Plugin 'cmwslw/nerdcommenter'
 Plugin 'elzr/vim-json'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'AndrewRadev/sideways.vim'
+Plugin 'tpope/vim-surround'
 call vundle#end()
 
 filetype plugin indent on
@@ -156,3 +157,7 @@ vmap <Enter> <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+
+" Highlighting for mma
+au BufRead,BufNewFile *.m setl ft=mma
+au BufRead,BufNewFile *.er setl ft=mma
