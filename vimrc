@@ -18,6 +18,7 @@ Plugin 'elzr/vim-json'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'AndrewRadev/sideways.vim'
 Plugin 'tpope/vim-surround'
+Plugin 'tomlion/vim-solidity'
 call vundle#end()
 
 filetype plugin indent on
